@@ -29,8 +29,13 @@
     c. How to access xml ui controll in code
     #### Assignment: print Fibonacci serires on screen 
 
-### Chapter 3: 
+### Chapter 3: Video link https://youtu.be/QbPNZ_oa_UM
     c. Kotlin Exclusive
         1. elvis operator   
         2. exclusive return on if when
         3. for with index
+### Chapter 4:
+    ...Continue Kotlin Exclusive
+        4. Equlity
+        5. Multiple constructors
+        6. Inharitance
