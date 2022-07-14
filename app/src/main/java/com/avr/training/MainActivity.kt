@@ -2,6 +2,7 @@ package com.avr.training
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +10,9 @@ class MainActivity : AppCompatActivity() {
     private var message: String? = "not null"
     var listOut: List<Int>? = null
     var myTextView:TextView? = null
+    var triangle1:RightTriangle? = null
+    var triangle2:RightTriangle? = null
+    var triangle3:RightTriangle? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +25,19 @@ class MainActivity : AppCompatActivity() {
             message += "$item position $position, "
         }
         myTextView?.text = message
+        triangle1 = RightTriangle(8, 8)
+        triangle2 = RightTriangle(8, 8)
+        triangle3 = triangle1
+        if(triangle1 == triangle2){
+            Log.d("helloworld", "value equal triangle1 == triangle2")
+        }
+        if(triangle1 === triangle2){
+            Log.d("helloworld", "reference equal triangle1 == triangle2")
+        }
+        if(triangle1 === triangle3){
+            Log.d("helloworld", "reference equal triangle1 == triangle3")
+        }
+
 
     }
 

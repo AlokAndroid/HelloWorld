@@ -34,8 +34,10 @@
         1. elvis operator   
         2. exclusive return on if when
         3. for with index
-### Chapter 4:
+### Chapter 4: video link https://youtu.be/x99oXiDer5w
     ...Continue Kotlin Exclusive
         4. Equlity
         5. Multiple constructors
         6. Inharitance
+        7. static fields and method in Kotlin(Companion object)
+        8. init block
