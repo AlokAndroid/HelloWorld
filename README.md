@@ -48,7 +48,7 @@
         Broadcast receivers
         Content providers
     e. Actvities lifecycle
-    ![Screenshot](activity_lifecycle.png)
+![Screenshot](activity_lifecycle.png)
 ### Chapter 6:
     f. Android user interection
         a. Reading text input
