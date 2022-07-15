@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     var triangle3:RightTriangle? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate called")
         setContentView(R.layout.activity_main)
         message =  message?:"elvis"//getMyMessage()
         listOut =  ArrayList()
@@ -29,18 +30,47 @@ class MainActivity : AppCompatActivity() {
         triangle2 = RightTriangle(8, 8)
         triangle3 = triangle1
         if(triangle1 == triangle2){
-            Log.d("helloworld", "value equal triangle1 == triangle2")
+            Log.d(TAG, "value equal triangle1 == triangle2")
         }
         if(triangle1 === triangle2){
-            Log.d("helloworld", "reference equal triangle1 == triangle2")
+            Log.d(TAG, "reference equal triangle1 == triangle2")
         }
         if(triangle1 === triangle3){
-            Log.d("helloworld", "reference equal triangle1 == triangle3")
+            Log.d(TAG, "reference equal triangle1 == triangle3")
         }
 
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy called")
+    }
     fun getMyMessage(): String{
         var msg = "wrong counter"
         if(counter < 0){
@@ -62,6 +92,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         return "message from function where counter is ${getMessageOnWhen(counter)}"
+    }
+
+    companion object{
+        private val TAG = "HELLO_WORLD"
     }
 }
 

@@ -41,13 +41,14 @@
         6. Inharitance
         7. static fields and method in Kotlin(Companion object)
         8. init block
-### Chapter 5: 
+### Chapter 5: video link https://youtu.be/9TXg80IIR-s
     d. Android components 
         Activities
         Services
         Broadcast receivers
         Content providers
     e. Actvities lifecycle
+    ![Screenshot](activity_lifecycle.png)
 ### Chapter 6:
     f. Android user interection
         a. Reading text input
