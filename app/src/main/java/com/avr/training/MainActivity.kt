@@ -3,13 +3,17 @@ package com.avr.training
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     val counter: Int = getCounter()
     private var message: String? = "not null"
     var listOut: List<Int>? = null
-    var myTextView:TextView? = null
+    private var myTextView:TextView? = null
+    var editText:EditText? = null
     var triangle1:RightTriangle? = null
     var triangle2:RightTriangle? = null
     var triangle3:RightTriangle? = null
@@ -20,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         message =  message?:"elvis"//getMyMessage()
         listOut =  ArrayList()
         myTextView = findViewById(R.id.my_text_input)
+        editText = findViewById(R.id.txt_input_view)
+        findViewById<Button>(R.id.btn_read_input).setOnClickListener {
+            onButtonClick(it)
+        }
         val series = getFibOutputLoop(counter)
         for((position, item) in series.withIndex()){
             //message += "${getFibOutputRecursive(position-1)}, "
@@ -38,8 +46,7 @@ class MainActivity : AppCompatActivity() {
         if(triangle1 === triangle3){
             Log.d(TAG, "reference equal triangle1 == triangle3")
         }
-
-
+        //myTextView?.setOnTouchListener()
     }
 
     override fun onStart() {
@@ -92,6 +99,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         return "message from function where counter is ${getMessageOnWhen(counter)}"
+    }
+
+    fun onButtonClick(view: View){
+        myTextView?.text = editText?.text
     }
 
     companion object{

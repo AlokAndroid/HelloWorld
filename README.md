@@ -49,7 +49,17 @@
         Content providers
     e. Actvities lifecycle
 ![Screenshot](activity_lifecycle.png)
-### Chapter 6:
+### Chapter 6: Video link https://youtu.be/QRd-gtXd0OQ
     f. Android user interection
         a. Reading text input
         b. Click or tap event handling
+    Assignment: Get the user touch coordinate from screen and print them on TextView
+### Chapter 7: 
+    Assignment explaination: Get the user touch coordinate from screen and print them on TextView
+    g. Android List
+        1. Theory diaplay list
+### Chapter 8:
+    continue list...
+        2. Recycler view
+        3. Adapter
+        4. ViewHolder
