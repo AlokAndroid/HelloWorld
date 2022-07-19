@@ -1,22 +1,30 @@
 package com.avr.training
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
+import android.view.MotionEvent.ACTION_BUTTON_PRESS
+import android.view.MotionEvent.ACTION_DOWN
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
+@SuppressLint("ClickableViewAccessibility")
 class MainActivity : AppCompatActivity() {
     val counter: Int = getCounter()
     private var message: String? = "not null"
     var listOut: List<Int>? = null
     private var myTextView:TextView? = null
-    var editText:EditText? = null
+    private var editText:EditText? = null
+    var touchContainer:View? = null
     var triangle1:RightTriangle? = null
     var triangle2:RightTriangle? = null
     var triangle3:RightTriangle? = null
+    var listView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate called")
@@ -25,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         listOut =  ArrayList()
         myTextView = findViewById(R.id.my_text_input)
         editText = findViewById(R.id.txt_input_view)
+        touchContainer = findViewById(R.id.touch_area)
         findViewById<Button>(R.id.btn_read_input).setOnClickListener {
             onButtonClick(it)
         }
@@ -46,7 +55,9 @@ class MainActivity : AppCompatActivity() {
         if(triangle1 === triangle3){
             Log.d(TAG, "reference equal triangle1 == triangle3")
         }
-        //myTextView?.setOnTouchListener()
+        touchContainer?.setOnTouchListener{ view: View, motionEvent: MotionEvent ->
+            onMyAreaTouch(view, motionEvent)
+        }
     }
 
     override fun onStart() {
@@ -101,8 +112,25 @@ class MainActivity : AppCompatActivity() {
         return "message from function where counter is ${getMessageOnWhen(counter)}"
     }
 
-    fun onButtonClick(view: View){
+    private fun onButtonClick(view: View){
         myTextView?.text = editText?.text
+    }
+
+    private fun onMyAreaTouch(touchView: View, touchType: MotionEvent): Boolean{
+        return when(touchType.action){
+            ACTION_DOWN -> {
+                myTextView?.text = "touch point is x ${touchType.x}, y ${touchType.y}"
+                Log.d(TAG, "action down event ${touchType.action} touch point x ${touchType.x}, y ${touchType.y}")
+                true
+            }
+            else -> {
+                Log.d(
+                    TAG,
+                    "other event ${touchType.action} touch point x ${touchType.x}, y ${touchType.y}"
+                )
+                false
+            }
+        }
     }
 
     companion object{

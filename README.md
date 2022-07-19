@@ -54,7 +54,7 @@
         a. Reading text input
         b. Click or tap event handling
     Assignment: Get the user touch coordinate from screen and print them on TextView
-### Chapter 7: 
+### Chapter 7: Video Link https://youtu.be/Bm5dTW2uCUU
     Assignment explaination: Get the user touch coordinate from screen and print them on TextView
     g. Android List
         1. Theory diaplay list
