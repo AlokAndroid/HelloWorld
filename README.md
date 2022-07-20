@@ -58,8 +58,13 @@
     Assignment explaination: Get the user touch coordinate from screen and print them on TextView
     g. Android List
         1. Theory diaplay list
-### Chapter 8:
+### Chapter 8: Video link https://youtu.be/o1lEnZPV3vo
     continue list...
         2. Recycler view
         3. Adapter
         4. ViewHolder
+### Chapter 9: 
+    continue list...
+        5. dynemically adding list item
+        6. handle list item click
+        7. grid view

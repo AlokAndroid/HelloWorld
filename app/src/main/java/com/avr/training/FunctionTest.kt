@@ -43,3 +43,11 @@ fun getFibOutputLoop(input: Int): MutableList<Int>{
     }
     return outSeries
 }
+
+fun getListData(size: Int): MutableList<String>{
+    val list = mutableListOf<String>()
+    for(position in 0..size){
+        list.add("List item at position $position")
+    }
+    return list
+}

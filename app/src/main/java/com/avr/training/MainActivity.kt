@@ -11,7 +11,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.NumberFormatException
 
 @SuppressLint("ClickableViewAccessibility")
 class MainActivity : AppCompatActivity() {
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     var triangle1:RightTriangle? = null
     var triangle2:RightTriangle? = null
     var triangle3:RightTriangle? = null
-    var listView: RecyclerView
+    lateinit var listView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate called")
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         myTextView = findViewById(R.id.my_text_input)
         editText = findViewById(R.id.txt_input_view)
         touchContainer = findViewById(R.id.touch_area)
+        listView = findViewById(R.id.list_view)
         findViewById<Button>(R.id.btn_read_input).setOnClickListener {
             onButtonClick(it)
         }
@@ -58,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         touchContainer?.setOnTouchListener{ view: View, motionEvent: MotionEvent ->
             onMyAreaTouch(view, motionEvent)
         }
+        listView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
     }
 
     override fun onStart() {
@@ -114,6 +118,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun onButtonClick(view: View){
         myTextView?.text = editText?.text
+        var size: Int? = null
+        try {
+            size = editText?.text?.toString()?.toInt()
+        }
+        catch (ex: NumberFormatException){
+            Log.e(TAG, "$ex")
+        }
+        size?.let{
+            val data = getListData(it)
+            Log.d(TAG, "data size ${data.size}")
+            val adapter = MyAdapter(data, this)
+            listView.adapter = adapter
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun onMyAreaTouch(touchView: View, touchType: MotionEvent): Boolean{
