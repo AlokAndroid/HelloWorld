@@ -1,6 +1,6 @@
 # HelloWorld
 
-## My First App https://youtu.be/6nsbxkB3du8
+<!---## My First App https://youtu.be/6nsbxkB3du8
 
 ## Training: Kotlin for android
 
@@ -68,3 +68,4 @@
         5. dynemically adding list item
         6. handle list item click
         7. grid view
+--->
